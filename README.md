@@ -60,10 +60,6 @@ No Windows use:
 mvnw.cmd spring-boot:run
 ```
 
-```bash
-./mvnw spring-boot:run
-```
-
 A API estará disponível em `http://localhost:3000`.
 
 O Flyway criará as tabelas e populará o banco com dados de exemplo automaticamente na primeira execução.

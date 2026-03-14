@@ -24,13 +24,13 @@ public class ProductController {
     // GET /api/products?order=ASC  → totalSold ASC
     @GetMapping
     public ResponseEntity<List<ProductEntity>> findAll(
-            @RequestParam(defaultValue = "ASC") String direction
+            @RequestParam(defaultValue = "ASC") String order
     ) {
-        if (!direction.equalsIgnoreCase("ASC") && !direction.equalsIgnoreCase("DESC")) {
+        if (!order.equalsIgnoreCase("ASC") && !order.equalsIgnoreCase("DESC")) {
             return ResponseEntity.badRequest().build();
         }
 
-        Sort sort = Sort.by(Sort.Direction.fromString(direction), "totalSold");
+        Sort sort = Sort.by(Sort.Direction.fromString(order), "totalSold");
         return ResponseEntity.ok(productService.findAll(sort));
     }
 }
